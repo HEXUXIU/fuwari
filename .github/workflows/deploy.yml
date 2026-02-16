@@ -25,7 +25,9 @@ jobs:
         run: bun install
 
       - name: Build Blog 🛠
-        run: bun run build
+        run: |
+          ./node_modules/.bin/astro build
+          bun x pagefind --site dist
 
       - name: Upload Artifacts 📤
         uses: actions/upload-pages-artifact@v3
